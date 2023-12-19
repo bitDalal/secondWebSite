@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, instial-scale=1">
+        
+        <title>Contact</title>
+        <link rel="stylesheet" href="contact.css">
+
+        <!---boxicons css link--->
+        <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+        <!---remixicons css link--->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+        <!---google fonts css link--->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <header>
+            <a href="#" class="logo">Lolo</a>
+
+            <ul class="navlist">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="lolo.html">Lolo?</a></li>
+                <li><a href="Art.html">Art Work</a></li>
+                <li><a href="request.html">Request</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </header>
+
+        <div class="box">
+            <form onsubmit="sendEmail(); reset(); return false;">
+                <h3>GET in TOUCH</h3>
+                <input type="text"  id="name" placeholder="Your Name" required>
+                <input type="email"  id="email" placeholder="Email id" required>
+                <textarea id="message" rows="5" placeholder="How we can help you?"></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>      
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+        <script>
+            function sendEmail(){
+                Email.send({
+                    Host : "smtp.gmail.com",
+                    Username : "Lolo",
+                    Password : "password",
+                    To : 'lolopearl@gmeil.com',
+                    From : document.getEmailById("email").value,
+                    Subject : "New contact Form Enquiry",
+                    Body : "name:" + document.getElementById("name").value
+                        + "<br> Email:" +  document.getEmailById("email").value
+                        + "<br> message:" +  document.getEmailById("message").value
+                }).then(
+                message => alert("Message Sent Succesfully")
+                );
+            }
+        </script>
+  </body>        
+</html>
